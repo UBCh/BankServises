@@ -1,5 +1,5 @@
 # BankServises
-## 1.Предварительно реализовано 2 сервиса -, 2- клиентский
+## 1.Предварительно реализовано 2 сервиса:
 
 * ** 1-[ для сотрудника банка ](https://github.com/UBCh/BankServises/blob/7cdd04ad20d1176f6fb1a3d4c4d7ff3fc2a1e39e/src/main/java/servises/Bank.java#L1)**
 * ** 2-[ для клиента ](https://github.com/UBCh/BankServises/blob/7cdd04ad20d1176f6fb1a3d4c4d7ff3fc2a1e39e/src/main/java/servises/AccountServis.java#L1)**
