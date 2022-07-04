@@ -1,6 +1,6 @@
 package dataClasses.UserCard;
 
-public enum TypesCards {
+public enum TypesCard {
 
     GOLD,
     SILVER,

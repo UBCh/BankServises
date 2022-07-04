@@ -1,12 +1,13 @@
-package dataClasses.BD;
+package dataClasses.DataStorage;
 
 import dataClasses.Address;
 import dataClasses.Info;
 import dataClasses.User;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.HashMap;
 
-public class BazaFake {
+public class DataFake {
 
 
     public static HashMap<Long, User> fillingMap() {
@@ -19,9 +20,21 @@ public class BazaFake {
         return fake;
     }
 
+
+    private static String generator() {
+        String generatedString = RandomStringUtils.randomAlphabetic(6);
+
+       return generatedString;
+
+    }
+
+
+
      public static User createFakeUser(){
          User user = new User();
-       user.info=new Info("Василий","Трамп",new Address("Москва","Проспект мира","10","7"));
+         String house= String.valueOf(Math.random() * 3);
+         String flat= String.valueOf(Math.random() * 3);
+       user.info=new Info(generator(),generator(),new Address(generator(),generator(), house,flat));
        user.setUserCard();
          return user;
 

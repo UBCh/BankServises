@@ -1,7 +1,7 @@
 package controller;
 
 import dataClasses.Account;
-import dataClasses.BD.DataBD;
+import dataClasses.DataStorage.StorageUserData;
 import dataClasses.User;
 
 import servises.AccountServis;
@@ -126,8 +126,8 @@ public class BankController {
 
 
            public static void transferBetweenCards(long id1, long id2,int summa){
-        id1= DataBD.ownerSearchByCardNumber(id1);
-        id2=DataBD.ownerSearchByCardNumber(id2);
+        id1= StorageUserData.ownerSearchByCardNumber(id1);
+        id2= StorageUserData.ownerSearchByCardNumber(id2);
         Bank.transfer(id1,id2,summa);
     }
 

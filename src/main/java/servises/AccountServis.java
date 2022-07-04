@@ -1,7 +1,7 @@
 package servises;
 
 import dataClasses.Account;
-import dataClasses.BD.BasaAccaunt;
+import dataClasses.DataStorage.StorageAccountData;
 import dataClasses.User;
 
 import java.util.Scanner;
@@ -10,11 +10,11 @@ import static java.lang.System.in;
 
 public class AccountServis {
 
-    static Scanner scanner = new Scanner(in);
+
 
 
       public static boolean logoVerification(String logo) {
-          if (BasaAccaunt.lostLogin(logo)) {
+          if (StorageAccountData.lostLogin(logo)) {
               return true;
           }
           return false;
@@ -23,11 +23,12 @@ public class AccountServis {
 
 
     public static boolean verification(String logo, String pass) {
-        if (BasaAccaunt.lostPass(logo,pass)){ return true;}
+        if (StorageAccountData.lostPass(logo,pass)){ return true;}
                  return false;
     }
 
     public static Account createAccaunt(){
+        Scanner scanner = new Scanner(in);
         System.out.print("придумайте логин");
        String logo = scanner.nextLine();
        while (logoVerification(logo))
@@ -37,12 +38,12 @@ public class AccountServis {
        String pass = scanner.nextLine();
          Bank.addUser();
          Account account= new Account(logo,pass,User.getId());
-           BasaAccaunt.mapAdd(account.getId(),account);
+           StorageAccountData.mapAdd(account.getId(),account);
            return account;
        }
 
     public static void accountGetContent(String logo,String pass) {
-          Account account=BasaAccaunt.getAccount(logo,pass);
+          Account account= StorageAccountData.getAccount(logo,pass);
         System.out.println("Ваш логин   -"+ account.getShortName());
         System.out.println("Ваш пароль  -"+ account.getPassvord());
        User user= Bank.lookForId(account.getId());

@@ -1,18 +1,18 @@
-package dataClasses.BD;
+package dataClasses.DataStorage;
 
-import dataClasses.UserCard.Card;
+import dataClasses.Info;
 import dataClasses.User;
-
+import dataClasses.UserCard.Card;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 
 
-public class DataBD {
-    public static HashMap<Long, User> mapUser= BazaFake.fillingMap();
+public class StorageUserData {
+    public static HashMap<Long, User> mapUser= DataFake.fillingMap();
 
-    public DataBD() {
+    public StorageUserData() {
     }
 
 
@@ -22,11 +22,11 @@ public class DataBD {
         return mapUser;
     }
 
-    public static ArrayList<User> LostSurname(String surname) {
+    public static ArrayList<User> lostSurname(String surname) {
         Collection<User> users = mapUser.values();
         ArrayList<User> resultArrayList= new ArrayList<>();
         for (User tmp : users) {
-            var infoUser = tmp.getInfo();
+            Info infoUser = tmp.getInfo();
              if ((infoUser.getSurname()).equals(surname)) {
                 resultArrayList.add(tmp);
                         }}
@@ -60,10 +60,10 @@ public class DataBD {
     public static int[] refill(long id1, long id2, int summa) {
         User user1=mapUser.get(id1);
         User user2=mapUser.get(id2);
-        var cardUser1 = user1.getCard();
-        var cardUser2 = user2.getCard();
-        var balansNumber1=cardUser1.getMoney();
-        var balansNumber2=cardUser2.getMoney();
+      Card cardUser1 = user1.getCard();
+       Card cardUser2 = user2.getCard();
+        int balansNumber1=cardUser1.getMoney();
+        int balansNumber2=cardUser2.getMoney();
         int i=balansNumber1-summa;
         int j=balansNumber2+summa;
         cardUser1.setMoney(i);

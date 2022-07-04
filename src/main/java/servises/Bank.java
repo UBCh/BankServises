@@ -1,6 +1,6 @@
 package servises;
 
-import dataClasses.BD.DataBD;
+import dataClasses.DataStorage.StorageUserData;
 import dataClasses.User;
 
 
@@ -24,26 +24,25 @@ public class Bank {
 
 
     public static void addUser() {
-        User user = new User( );
-        user = User.createUser( );
-        DataBD.hashmapAdd(user);
-        System.out.print(DataBD.mapUser.toString( ));
+        User user = User.createUser( );
+        StorageUserData.hashmapAdd(user);
+        System.out.print(StorageUserData.mapUser.toString( ));
 
     }
 
     public static void getDataUsers() {
-        System.out.println(DataBD.mapUser.entrySet( ));
+        System.out.println(StorageUserData.mapUser.entrySet( ));
     }
 
     public static User lookForId(long id) {
-        if (DataBD.mapUser.containsKey(id)) {
-            return DataBD.mapUser.get(id);
+        if (StorageUserData.mapUser.containsKey(id)) {
+            return StorageUserData.mapUser.get(id);
         }
         return null;
     }
 
     public static ArrayList<User> lookForSurName(String surname) {
-        ArrayList<User> result = DataBD.LostSurname(surname);
+        ArrayList<User> result = StorageUserData.lostSurname(surname);
         if (result == null) {
             System.out.println("пользователь не найден");
             return null;
@@ -54,7 +53,7 @@ public class Bank {
 
 
     public static void transfer(long id1, long id2, int summa) {
-        var result = DataBD.refill(id1, id2, summa);
+        var result = StorageUserData.refill(id1, id2, summa);
         System.out.println("выполнен перевод с карты номер " + id1 + " , баланс карты " + result[0] + "на карту номер " + id2 + " баланс карты " + result[1]);
     }
 

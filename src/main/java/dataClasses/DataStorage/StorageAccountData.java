@@ -1,4 +1,4 @@
-package dataClasses.BD;
+package dataClasses.DataStorage;
 
 import dataClasses.Account;
 
@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BasaAccaunt {
+public class StorageAccountData {
 
 
     private static Map<Long, Account > accauntBD =new HashMap<>();
