@@ -1,56 +1,53 @@
 package dataClasses;
 
+import java.util.Scanner;
+
+import static java.lang.System.in;
+
 public class Account {
 
-    private  String passvord;
-    private  String shortName;
-    private   long id;
+    private static String passvord;
+    private static String shortName;
+
     public Account() {
     }
 
-    public Account(String passvord, String shortName, long id) {
+    public Account(String passvord, String shortName) {
         this.passvord = passvord;
         this.shortName = shortName;
-        this.id = id;
+
     }
 
-    public static Account bornAccount(String shName, String pas, long i){
-        Account account=new Account();
-       account.setShortName(shName);
-       account.setPassvord(pas);
-       account.setId(i);
+    public static Account bornAccount() {
+        Account account = new Account( );
+        account.setShortName( );
+        account.setPassvord( );
+
         return account;
     }
 
-
-    public void setPassvord(String pas) {
-        this.passvord = pas;
-    }
-
-    public void setShortName(String shName) {
-        this.shortName = shName;
-    }
-
-
-
-    public  long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public  String getPassvord() {
+    public static String getPassword() {
         return passvord;
     }
 
-    public  String getShortName() {
+    public static String getShortName() {
         return shortName;
     }
 
 
+    public void setPassvord() {
+        Scanner scanner = new Scanner(in);
+        System.out.print("придумайте логин ");
+        String pass = scanner.nextLine( );
+        passvord = pass;
+    }
 
+    public void setShortName() {
+        Scanner scanner = new Scanner(in);
+        System.out.print("введите пароль");
+        String logo = scanner.nextLine( );
+        shortName = logo;
+    }
 
 
 }

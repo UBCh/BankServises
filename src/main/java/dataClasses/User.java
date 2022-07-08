@@ -4,19 +4,20 @@ import dataClasses.UserCard.Card;
 
 public class User {
 
-     public Info info;
-    public Card card;
-    private static long id = (long) (Math.random() * 999999999);
+     public static Info info;
+    public static Card card;
+    private static long id = (long) (Math.random() * 999999999);;
+    private static Account account;
 
 
     public User() {
     }
 
-    public Info getInfo() {
+    public static Info getInfo() {
         return info;
     }
 
-    public Card getCard() {
+    public static Card getCard() {
         return card;
     }
 
@@ -30,6 +31,7 @@ public class User {
         User user = new User();
         user.setUserInfo();
         user.setUserCard();
+        user.setAccount();
         return user;
     }
 
@@ -42,6 +44,13 @@ public class User {
         card = new Card();
         card.setCard();
     }
+    public void setAccount(){
+        account=new Account();
+        account.setPassvord();
+        account.setShortName();
+    }
 
-
+    public static Account getAccount() {
+        return account;
+    }
 }

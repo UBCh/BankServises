@@ -1,14 +1,17 @@
 package dataClasses.DataStorage;
 
+import dataClasses.Account;
 import dataClasses.Address;
 import dataClasses.Info;
 import dataClasses.User;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 
 import java.util.HashMap;
 
 public class DataFake {
 
+//    Для генерирования фейковых данных для заполнения БД
 
     public static HashMap<Long, User> fillingMap() {
      HashMap <Long, User>fake =new HashMap<>();
@@ -32,15 +35,21 @@ public class DataFake {
 
      public static User createFakeUser(){
          User user = new User();
-         String house= String.valueOf(Math.random() * 3);
-         String flat= String.valueOf(Math.random() * 3);
+         String house= String.valueOf(RandomUtils.nextInt(0,100));
+         String flat= String.valueOf(RandomUtils.nextInt(0,100));;
        user.info=new Info(generator(),generator(),new Address(generator(),generator(), house,flat));
        user.setUserCard();
          return user;
 
      }
 
+    public static Account createFakeAccount(){
+        String secretName= generator();
+        String passw= generator();
+        Account account=new Account(secretName,passw);
+        return account;
 
+    }
 
 
 
