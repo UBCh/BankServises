@@ -1,6 +1,7 @@
 # BankServises
 ## 1. Шаги ( запуск на локальной машине в intelliJ IDEA)
 
+* перейти в ветку BD
 * открыть проект в IntelliJ IDEA
 * открыть http://www.phpmyadmin.net
 * импортировать [базу данных](https://github.com/UBCh/BankServises/blob/BD/src/main/java/BD/ubch.sql) кодировка файла utf-8, формат SQL.
